@@ -1,0 +1,22 @@
+module tb_CPU;
+    reg clk;
+    reg reset;
+    CPU cpu (
+        .clk(clk),
+        .reset(reset)
+    );
+
+    initial begin
+        // Initialize clock and reset
+        clk = 0;
+        reset = 1;
+        #10 reset = 0;
+
+        // Apply test vectors
+        // Load some instructions into instruction memory
+        // Simulate for some time
+        #100 $finish;
+    end
+
+    always #5 clk = ~clk; // 10ns clock period
+endmodule
